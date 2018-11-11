@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -18,11 +19,29 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     Uri filename;
+    GridView gridView;
+    ImageAdapter adapter;
+    private File[] listFiles;
+    private String[] FilePaths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        gridView = findViewById(R.id.gridview);
+
+        File file = new File("/storage/emulated/0/Pictures/LabProgram");
+        if(file.isDirectory())
+        {
+            listFiles = file.listFiles();
+            FilePaths = new String[listFiles.length];
+            for (int i = 0; i < listFiles.length; i++)
+                FilePaths[i] = listFiles[i].getAbsolutePath();
+        }
+
+        adapter = new ImageAdapter(FilePaths,this);
+        gridView.setAdapter(adapter);
     }
 
     public void capture(View view) {
