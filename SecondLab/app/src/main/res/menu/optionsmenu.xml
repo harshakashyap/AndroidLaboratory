@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Parliament"
+        android:id="@+id/parliament"/>
+    <item android:title="Taj Mahal"
+        android:id="@+id/tajmahal"/>
+    <item android:title="Rashtrapati Bhavan"
+        android:id="@+id/rbhavan"/>
+</menu>
