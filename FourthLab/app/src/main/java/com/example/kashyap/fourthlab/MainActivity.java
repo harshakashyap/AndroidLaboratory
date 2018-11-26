@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         gridView = findViewById(R.id.gridview);
 
         File file = new File("/storage/emulated/0/Pictures/LabProgram");
+        file.mkdirs();
+
         if(file.isDirectory())
         {
             listFiles = file.listFiles();
